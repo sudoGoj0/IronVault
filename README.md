@@ -183,3 +183,162 @@ Move to Phase 2
 Repeat
 
 That’s it.
+
+--------------------------------------------------------------
+
+Steps: 
+
+🪜 STEP 1 — CREATE YOUR ACCOUNTS (15–20 min)
+
+Do this in order:
+
+1. GitHub
+Go to github.com
+Sign up
+Remember username + password
+
+3. Vercel
+Go to vercel.com
+“Sign up with GitHub” (important)
+Click accept permissions
+
+5. Supabase
+Go to supabase.com
+Sign up
+Create a new project
+Save password somewhere safe
+🧱 STEP 2 — CREATE YOUR APP PROJECT (NO CODING YET)
+Install ONE thing:
+Download VS Code (this is just a text editor)
+Install Node.js:
+Go to nodejs.org
+Download “LTS version”
+Click next → next → install
+
+(This lets your computer run web apps)
+
+🧠 STEP 3 — CREATE YOUR APP (COPY/PASTE ONLY)
+
+Open terminal (don’t worry—it’s just a command box)
+
+Run this:
+
+npx create-next-app@latest fitness-app
+
+When it asks questions:
+
+TypeScript → YES
+ESLint → YES
+Tailwind → YES (recommended)
+App Router → YES
+
+Then:
+
+cd fitness-app
+
+Run app:
+
+npm run dev
+
+Open in browser:
+
+http://localhost:3000
+
+👉 You just created your first app.
+
+☁️ STEP 4 — CONNECT TO GITHUB
+
+Inside VS Code terminal:
+
+git init
+git add .
+git commit -m "initial commit"
+
+Then:
+
+Go to GitHub
+Click “New repository”
+Name it: fitness-app
+Copy the commands GitHub shows you
+Paste them in terminal
+🚀 STEP 5 — DEPLOY TO VERCEL (MAKE IT LIVE)
+
+Go to Vercel
+
+Click “Add New Project”
+Select your GitHub repo
+Click Deploy
+
+After ~1 minute:
+
+👉 You get a live link like:
+
+https://fitness-app.vercel.app
+🧠 STEP 6 — CONNECT SUPABASE (DATABASE SETUP)
+
+Go to Supabase
+
+Inside your project:
+
+1. Go to “SQL Editor”
+
+Paste this:
+
+create table users (
+  id uuid primary key default gen_random_uuid(),
+  display_name text,
+  created_at timestamp default now()
+);
+
+create table activities (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid,
+  type text,
+  miles numeric,
+  points numeric,
+  activity_date date,
+  created_at timestamp default now()
+);
+
+Click RUN
+
+🔐 STEP 7 — SET UP LOGIN (NO CODING YET)
+
+In Supabase:
+
+Go to Authentication
+Enable:
+Email login (magic link)
+
+That’s it.
+
+🧩 STEP 8 — CONNECT EVERYTHING (IMPORTANT)
+
+In Vercel:
+
+Go to:
+
+Settings → Environment Variables
+
+Add:
+
+NEXT_PUBLIC_SUPABASE_URL
+NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+(You copy these from Supabase dashboard)
+
+🤖 STEP 9 — NOW YOU START USING CODEX
+
+At this point:
+
+✔ App exists
+✔ Website exists
+✔ Database exists
+✔ Login system exists
+
+Now Codex does the building.
+
+First Codex prompt you will use:
+
+Build a mobile-first fitness tracking app using Next.js and Supabase.
+Add login, activity logging, scoring system, and leaderboard based on this schema.
